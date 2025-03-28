@@ -1,0 +1,125 @@
+/* Contenedor principal */
+.scanner-container {
+  background-color: #141414;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Área del escáner */
+.scanner-wrapper {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border: 2px solid #D7FC70;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Controles del escáner */
+.controls {
+  margin: 25px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Botones */
+button {
+  padding: 10px 25px;
+  background-color: #D7FC70;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #A6E14F;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Resultado del escaneo */
+.result {
+  margin: 25px auto;
+  padding: 15px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result h3 {
+  color: #D7FC70;
+  margin-top: 0;
+  text-align: center;
+}
+
+.result p {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Formulario para agregar producto */
+.add-product-form {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #D7FC70;
+}
+
+.add-product-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #141414;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.add-product-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #D7FC70;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-product-form button:hover {
+  background-color: #A6E14F;
+  transform: scale(1.05);
+}

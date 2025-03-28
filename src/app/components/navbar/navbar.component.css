@@ -1,0 +1,167 @@
+.navbar {
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #A6E14F;
+  text-decoration: none;
+  order: 1;
+  margin-right: auto;
+}
+
+.navbar-brand:hover {
+  color: #A6E14F;
+}
+
+/* Botón Hamburguesa (solo móvil) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  order: 3;
+  padding: 0.5rem;
+}
+
+/* Menú de navegación */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  order: 2;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #A6E14F;
+}
+
+.nav-link.active {
+  color: #A6E14F;
+  border-bottom: 2px solid #A6E14F;
+}
+
+/* Botón Login (desktop) */
+.navbar-actions {
+  margin-left: auto;
+  order: 4;
+}
+
+.btn-login {
+  background-color: #D7FC70;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.btn-login:hover {
+  background-color: #A6E14F;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    order: 4;
+    gap: 0.5rem;
+    background-color: #2a2a2a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 0 2rem;
+  }
+
+  .navbar-links.active {
+    max-height: 500px;
+    padding: 1rem 2rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #3a3a3a;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-actions {
+    display: none;
+  }
+
+  .mobile-login {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-brand {
+    order: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+    margin-right: auto;
+  }
+
+  .navbar-toggle {
+    order: 2;
+  }
+}
+
+.navbar-logo {
+  height: 2rem; 
+  width: auto;
+  transition: transform 0.3s ease;
+  gap: 2rem;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05); 
+}
+
+/* Ajustes responsivos para el logo */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 1.75rem;
+    gap: 2rem;
+  }
+}

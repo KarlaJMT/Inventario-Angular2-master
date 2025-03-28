@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<div class="generator-container">
+  <h2 class="title">Generador de Códigos de Barras</h2>
+  
+  <div class="controls">
+    <div class="input-group">
+      <label class="label">Contenido del Código:</label>
+      <input 
+        class="input" 
+        [(ngModel)]="barcodeValue" 
+        (input)="generateBarcode()"
+        placeholder="Ingresa el texto/números"
+        maxlength="20"
+      >
+      <div class="format-selector">
+        <label class="label">Formato:</label>
+        <select class="input" [(ngModel)]="barcodeFormat" (change)="generateBarcode()">
+          <option value="CODE128">CODE 128</option>
+          <option value="EAN13">EAN-13</option>
+          <option value="UPC">UPC-A</option>
+          <option value="ITF14">ITF-14</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="generate-btn" (click)="generateBarcode()">
+        Generar Código
+      </button>
+      <button class="random-btn" (click)="generateRandom()">
+        Generar Aleatorio
+      </button>
+    </div>
+  </div>
+
+  <div class="preview-container">
+    <canvas #barcodeCanvas class="barcode-display"></canvas>
+  </div>
+
+  <div class="status-message" *ngIf="statusMessage">
+    {{ statusMessage }}
+  </div>
+
+  <div class="download-section">
+    <button class="download-btn" (click)="downloadBarcode()" [disabled]="!barcodeValue || !validateBarcode()">
+      Descargar Código de Barras
+    </button>
+  </div>
+
+  <!-- Sección para agregar el producto al inventario -->
+  <div class="add-product-section">
+    <h3>Agregar producto al inventario</h3>
+    <label>Código: {{ newProduct.id }}</label>
+    <br>
+    <label>Nombre:</label>
+    <input [(ngModel)]="newProduct.name" placeholder="Nombre">
+    <br>
+    <label>Precio:</label>
+    <input type="number" [(ngModel)]="newProduct.price" placeholder="Precio">
+    <br>
+    <label>Cantidad:</label>
+    <input type="number" [(ngModel)]="newProduct.quantity" placeholder="Cantidad">
+    <br>
+    <button (click)="addProduct()">Agregar al Inventario</button>
+  </div>
+</div>

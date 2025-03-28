@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="navbar-container">
+      <a class="navbar-brand" routerLink="/InicioSesion">
+          <img src="https://i.ibb.co/C3TqqkLB/arcanum-logo-libro.png" alt="Logo" class="navbar-logo">
+          <span>SCANUM</span>
+        </a>
+
+    <!-- Botón hamburguesa para móviles -->
+    <button class="navbar-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <span class="toggle-icon">☰</span>
+    </button>
+
+    <!-- Menú de navegación -->
+    <div class="navbar-links" [class.active]="isMenuOpen">
+      <a class="nav-link" routerLink="/escanear" routerLinkActive="active">Escáner</a>
+      <a class="nav-link" routerLink="/generador" routerLinkActive="active">Generador</a>
+      <a class="nav-link" routerLink="/inventario" routerLinkActive="active">Inventario</a>
+    </div>
+
+    <!-- Botón de login (solo visible en desktop) -->
+    <div class="navbar-actions">
+      <button class="btn btn-login" routerLink="/InicioSesion">Iniciar sesión</button>
+    </div>
+  </div>
+</nav>

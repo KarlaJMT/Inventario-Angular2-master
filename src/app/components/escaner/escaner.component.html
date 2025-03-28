@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+
+<div class="scanner-container">
+  <h1>Lector de Códigos de Barras/QR</h1>
+
+  <!-- Componente del escáner -->
+  <div *ngIf="scannerEnabled">
+    <div class="scanner-wrapper">
+      <zxing-scanner
+        [enable]="scannerEnabled"
+        [formats]="allowedFormats"
+        (scanSuccess)="onScanSuccess($event)"
+        [autofocusEnabled]="true"
+        [tryHarder]="true">
+      </zxing-scanner>
+    </div>
+  </div>
+
+  <!-- Controles para iniciar/detener el escáner -->
+  <div class="controls">
+    <button (click)="startScanner()" [disabled]="scannerEnabled">
+      Activar Escáner
+    </button>
+    <button (click)="stopScanner()" [disabled]="!scannerEnabled">
+      Desactivar
+    </button>
+  </div>
+
+  <!-- Mostrar resultado del escaneo -->
+  <div *ngIf="scanResult" class="result">
+    <h3>Código detectado:</h3>
+    <p>{{ scanResult }}</p>
+  </div>
+
+  <!-- Formulario para agregar producto si no existe -->
+  <div *ngIf="showAddProductForm" class="add-product-form">
+    <h3>Agregar Producto</h3>
+    <label>Código: {{ newProduct.id }}</label>
+    <br>
+    <label>Nombre:</label>
+    <input [(ngModel)]="newProduct.name" placeholder="Nombre del producto">
+    <br>
+    <label>Precio:</label>
+    <input type="number" [(ngModel)]="newProduct.price" placeholder="Precio">
+    <br>
+    <label>Cantidad:</label>
+    <input type="number" [(ngModel)]="newProduct.quantity" placeholder="Cantidad">
+    <br>
+    <button (click)="addProduct()">Agregar Producto</button>
+  </div>
+</div>
