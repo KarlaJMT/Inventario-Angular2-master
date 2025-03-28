@@ -22,7 +22,7 @@ export class InicioSesionComponent {
   async handleGoogleLogin() {
     try {
       await this.authService.signInWithGoogle();
-      this.router.navigate(['/inventario']);
+      this.router.navigate(['/escanear']);
     } catch (error) {
       this.errorMessage = 'Error al iniciar sesión con Google';
       console.error(error);

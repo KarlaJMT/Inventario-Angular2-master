@@ -34,6 +34,7 @@ export class AuthService {
     this.supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
         this.currentUser.next(session?.user ?? null);
+        this.router.navigate(['/escanear']);
       } else if (event === 'SIGNED_OUT') {
         this.currentUser.next(null);
         this.router.navigate(['/login']);
@@ -60,6 +61,7 @@ export class AuthService {
     if (error) {
       throw error;
     }
+    // this.router.navigate(['/escanear']);
   }
 
   async signOut(): Promise<void> {
