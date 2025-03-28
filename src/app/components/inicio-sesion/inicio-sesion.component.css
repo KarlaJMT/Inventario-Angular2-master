@@ -71,3 +71,10 @@ label {
 .botoninicio:hover {
     background-color: #A6E14F;
 }
+
+.error-message {
+    color: #ff4444;
+    margin-top: 1rem;
+    font-size: 0.9em;
+    text-align: center;
+}

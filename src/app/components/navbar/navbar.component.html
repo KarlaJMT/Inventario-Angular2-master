@@ -1,9 +1,9 @@
 <nav class="navbar">
   <div class="navbar-container">
-      <a class="navbar-brand" routerLink="/InicioSesion">
-          <img src="https://i.ibb.co/C3TqqkLB/arcanum-logo-libro.png" alt="Logo" class="navbar-logo">
-          <span>SCANUM</span>
-        </a>
+    <a class="navbar-brand" routerLink="/InicioSesion">
+      <img src="https://i.ibb.co/C3TqqkLB/arcanum-logo-libro.png" alt="Logo" class="navbar-logo">
+      <span>SCANUM</span>
+    </a>
 
     <!-- Botón hamburguesa para móviles -->
     <button class="navbar-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
@@ -12,14 +12,27 @@
 
     <!-- Menú de navegación -->
     <div class="navbar-links" [class.active]="isMenuOpen">
-      <a class="nav-link" routerLink="/escanear" routerLinkActive="active">Escáner</a>
-      <a class="nav-link" routerLink="/generador" routerLinkActive="active">Generador</a>
-      <a class="nav-link" routerLink="/inventario" routerLinkActive="active">Inventario</a>
+      <!-- Mostrar enlaces solo si está autenticado -->
+      <ng-container *ngIf="authService.isLoggedIn$ | async">
+        <a class="nav-link" routerLink="/escanear" routerLinkActive="active">Escáner</a>
+        <a class="nav-link" routerLink="/generador" routerLinkActive="active">Generador</a>
+        <a class="nav-link" routerLink="/inventario" routerLinkActive="active">Inventario</a>
+      </ng-container>
     </div>
 
-    <!-- Botón de login (solo visible en desktop) -->
+    <!-- Acciones de usuario -->
     <div class="navbar-actions">
-      <button class="btn btn-login" routerLink="/InicioSesion">Iniciar sesión</button>
+      <ng-container *ngIf="authService.isLoggedIn$ | async; else loginSection">
+        <button class="btn btn-login" (click)="logout()">
+          Cerrar sesión
+        </button>
+      </ng-container>
+      
+      <ng-template #loginSection>
+        <button class="btn btn-login" routerLink="/InicioSesion">
+          Iniciar sesión
+        </button>
+      </ng-template>
     </div>
   </div>
 </nav>

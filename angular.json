@@ -59,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4200,
+            "buildTarget": "Inventario-Angular2:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "Inventario-Angular2:build:production"
